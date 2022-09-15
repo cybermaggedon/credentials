@@ -21,8 +21,8 @@ import (
 
 const (
 	// Google authentication parameters.
-	clientID     = "1041863416400-9ucotql4lgksp8o89krkmia8tkha4ohh.apps.googleusercontent.com"
-	clientSecret = "7AyOQH1QAkNCFASyhdNzNIgY"
+	clientID     = "CLIENT_ID_GOES_HERE"
+	clientSecret = "SECRET_GOES_HERE"
 )
 
 // Chan used to transmit code from HTTP client to main thread
