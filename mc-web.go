@@ -10,7 +10,7 @@ package credentials
 
 import (
 	"fmt"
-	"github.com/DHowett/go-plist"
+	"howett.net/plist"
 	"strings"
 )
 

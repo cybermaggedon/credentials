@@ -9,7 +9,7 @@ package credentials
 import (
 	"crypto/x509"
 	"encoding/pem"
-	"github.com/mastahyeti/cms"
+	"github.com/github/ietf-cms"
 	"io/ioutil"
 )
 

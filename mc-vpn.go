@@ -18,7 +18,7 @@ import (
 	"encoding/pem"
 	"errors"
 	"fmt"
-	"github.com/DHowett/go-plist"
+	"howett.net/plist"
 	"regexp"
 	"strings"
 )
