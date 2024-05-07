@@ -54,7 +54,7 @@ type Payload struct {
 }
 
 // Mobileconfig OnDemandRule
-type onDemandRule struct {
+type OnDemandRule struct {
 	Action string `plist:"Action,omitempty"`
 }
 
@@ -78,7 +78,7 @@ type Ikev2 struct {
 	UseConfigurationAttributeInternalIPSubnet int            `plist:"UseConfigurationAttributeInternalIPSubnet"`
 	DisconnectOnIdle                          int            `plist:"DisconnectOnIdle"`
 	OnDemandEnabled                           int            `plist:"OnDemandEnabled"`
-	OnDemandRules                             []onDemandRule `plist:"OnDemandRules,omitempty"`
+	OnDemandRules                             []OnDemandRule `plist:"OnDemandRules,omitempty"`
 }
 
 // Mobileconfig VPN configuration

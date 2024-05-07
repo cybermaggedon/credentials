@@ -65,8 +65,8 @@ func (c VpnCredential) ikev2(device, p12PayUuid, host string) *Ikev2 {
 		UseConfigurationAttributeInternalIPSubnet: 0,
 		DisconnectOnIdle:                          0,
 		OnDemandEnabled:                           0,
-		OnDemandRules: []onDemandRule{
-			onDemandRule{Action: "Connect"},
+		OnDemandRules: []OnDemandRule{
+			OnDemandRule{Action: "Connect"},
 		},
 	}
 }
