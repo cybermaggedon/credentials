@@ -63,8 +63,8 @@ type Ikev2 struct {
 	Name                               string                              `plist:"Name,omitempty"`
 	AuthenticationMethod               string                              `plist:"AuthenticationMethod,omitempty"`
 	CertificateType                    string                              `plist:"CertificateType,omitempty"`
-	ChildSecurityAssociationParameters *childSecurityAssociationParameters `plist:"ChildSecurityAssociationParameters,omitempty"`
-	IKESecurityAssociationParameters   *childSecurityAssociationParameters `plist:"IKESecurityAssociationParameters"`
+	ChildSecurityAssociationParameters *ChildSecurityAssociationParameters `plist:"ChildSecurityAssociationParameters,omitempty"`
+	IKESecurityAssociationParameters   *ChildSecurityAssociationParameters `plist:"IKESecurityAssociationParameters"`
 
 	DeadPeerDetectionRate                     string         `plist:"DeadPeerDetectionRate"`
 	DisableMOBIKE                             int            `plist:"DisableMOBIKE"`
@@ -92,7 +92,7 @@ type vpn struct {
 }
 
 // Mobileconfig Child security association paramters for an IKEv2 configuration
-type childSecurityAssociationParameters struct {
+type ChildSecurityAssociationParameters struct {
 	DiffieHellmanGroup  int    `plist:"DiffieHellmanGroup,omitempty"`
 	EncryptionAlgorithm string `plist:"EncryptionAlgorithm,omitempty"`
 	IntegrityAlgorithm  string `plist:"IntegrityAlgorithm,omitempty"`

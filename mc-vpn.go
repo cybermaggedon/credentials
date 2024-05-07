@@ -32,8 +32,8 @@ func (c VpnCredential) proxyConfig() *proxies {
 }
 
 // ChildSecurityAssocationParameters for mobileconfig encoding
-func (c VpnCredential) saParams() *childSecurityAssociationParameters {
-	return &childSecurityAssociationParameters{
+func (c VpnCredential) saParams() *ChildSecurityAssociationParameters {
+	return &ChildSecurityAssociationParameters{
 		DiffieHellmanGroup:  14,
 		EncryptionAlgorithm: "AES-256",
 		IntegrityAlgorithm:  "SHA2-256",
