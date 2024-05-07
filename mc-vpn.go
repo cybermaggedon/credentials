@@ -24,8 +24,8 @@ import (
 )
 
 // ProxyConfiguration for mobileconfig encoding
-func (c VpnCredential) proxyConfig() *proxies {
-	return &proxies{
+func (c VpnCredential) proxyConfig() *Proxies {
+	return &Proxies{
 		HTTPEnable:  0,
 		HTTPSEnable: 0,
 	}
@@ -42,8 +42,8 @@ func (c VpnCredential) saParams() *ChildSecurityAssociationParameters {
 }
 
 // IPv4 settings for mobileconfig encoding
-func (c VpnCredential) ipv4() *ipv4 {
-	return &ipv4{OverridePrimary: 1}
+func (c VpnCredential) ipv4() *Ipv4 {
+	return &Ipv4{OverridePrimary: 1}
 }
 
 // IKEv2 for mobileconfig encoding

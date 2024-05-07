@@ -45,8 +45,8 @@ type Payload struct {
 	Version             int                `plist:"PayloadVersion,omitempty"`
 	IKEv2               *Ikev2             `plist:"IKEv2,omitempty"`
 	VPN                 *vpn               `plist:"VPN,omitempty"`
-	IPv4                *ipv4              `plist:"IPv4,omitempty"`
-	Proxies             *proxies           `plist:"Proxies,omitempty"`
+	IPv4                *Ipv4              `plist:"IPv4,omitempty"`
+	Proxies             *Proxies           `plist:"Proxies,omitempty"`
 	UserDefinedName     string             `plist:"UserDefinedName,omitempty"`
 	VPNType             string             `plist:"VPNType,omitempty"`
 	VPNSubType          string             `plist:"VPNSubType,omitempty"`
@@ -100,12 +100,12 @@ type ChildSecurityAssociationParameters struct {
 }
 
 // Mobileconfig IPv4 configuration for IKEv2
-type ipv4 struct {
+type Ipv4 struct {
 	OverridePrimary int `plist:"OverridePrimary"`
 }
 
 // Mobileconfig proxy configuration
-type proxies struct {
+type Proxies struct {
 	HTTPEnable  int `plist:"HTTPEnable"`
 	HTTPSEnable int `plist:"HTTPSEnable"`
 }
