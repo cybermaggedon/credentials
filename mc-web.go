@@ -54,7 +54,7 @@ func (c WebCredential) GetMC(client *Client) ([]CredentialPayload, error) {
 	}
 
 	// Over-arching configuration
-	p := configuration{
+	p := Configuration{
 		Payloads:          pays,
 		DisplayName:       "Example web credential",
 		Identifier:        "example-web-cert",
