@@ -21,8 +21,8 @@ import (
 // this stuff does.
 
 // Top level mobileconfig configuration object
-type configuration struct {
-	Payloads          []payload `plist:"PayloadContent"`
+type Configuration struct {
+	Payloads          []Payload `plist:"PayloadContent"`
 	DisplayName       string    `plist:"PayloadDisplayName"`
 	Identifier        string    `plist:"PayloadIdentifier"`
 	Description       string    `plist:"PayloadDescription,omitempty"`
@@ -33,7 +33,7 @@ type configuration struct {
 }
 
 // Mobileconfig Payload
-type payload struct {
+type Payload struct {
 	Password            string             `plist:"Password,omitempty"`
 	CertificateFileName string             `plist:"PayloadCertificateFileName,omitempty"`
 	Content             []byte             `plist:"PayloadContent,omitempty"`
