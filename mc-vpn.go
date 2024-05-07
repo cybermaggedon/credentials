@@ -99,8 +99,8 @@ func (c VpnCredential) openVPNVendorConfig(ca, cert, key, host, tls string) *map
 }
 
 // Payload for the CA certificate.
-func (c VpnCredential) caPayload(ca []byte, uuid string) payload {
-	return payload{
+func (c VpnCredential) caPayload(ca []byte, uuid string) Payload {
+	return Payload{
 		CertificateFileName: "ca.crt",
 		Content:             ca,
 		Description:         "Adds a CA root certificate",
@@ -113,8 +113,8 @@ func (c VpnCredential) caPayload(ca []byte, uuid string) payload {
 }
 
 // P12 payload for mobileconfig encoding
-func (c VpnCredential) p12Payload(p12 []byte, pwd, name, uuid string) payload {
-	return payload{
+func (c VpnCredential) p12Payload(p12 []byte, pwd, name, uuid string) Payload {
+	return Payload{
 		Password:            pwd,
 		CertificateFileName: name,
 		Content:             p12,
@@ -201,7 +201,7 @@ func (c VpnCredential) GetMCIpsec(client *Client) ([]CredentialPayload, error) {
 	// file
 
 	// Payload list.
-	pays := []payload{
+	pays := []Payload{
 
 		// Payload for the CA certificate.
 		c.caPayload(creds.Ca.Bytes, caPayUuid),
@@ -210,7 +210,7 @@ func (c VpnCredential) GetMCIpsec(client *Client) ([]CredentialPayload, error) {
 		c.p12Payload(p12, password, device+".p12", p12PayUuid),
 
 		// Payload for the UK IKEv2 configuration
-		payload{
+		Payload{
 			IKEv2:           c.ikev2(device, p12PayUuid, ukHost),
 			IPv4:            c.ipv4(),
 			Description:     "Configures VPN settings",
@@ -225,7 +225,7 @@ func (c VpnCredential) GetMCIpsec(client *Client) ([]CredentialPayload, error) {
 		},
 
 		// Payload for the US IKEv2 configuration
-		payload{
+		Payload{
 			IKEv2:           c.ikev2(device, p12PayUuid, usHost),
 			IPv4:            c.ipv4(),
 			Description:     "Configures VPN settings",
@@ -241,7 +241,7 @@ func (c VpnCredential) GetMCIpsec(client *Client) ([]CredentialPayload, error) {
 	}
 
 	// Over-arching configuration
-	p := configuration{
+	p := Configuration{
 		Payloads:          pays,
 		DisplayName:       "Example VPN",
 		Identifier:        device,
@@ -336,10 +336,10 @@ func (c VpnCredential) GetMCOpenVpn(client *Client) ([]CredentialPayload, error)
 	// file
 
 	// Payload list.
-	pays := []payload{
+	pays := []Payload{
 
 		// Payload for the UK OpenVPN configuration
-		payload{
+		Payload{
 			VPN:             c.openVPN(""),
 			Description:     "Configures VPN settings",
 			DisplayName:     "VPN",
@@ -360,7 +360,7 @@ func (c VpnCredential) GetMCOpenVpn(client *Client) ([]CredentialPayload, error)
 		},
 
 		// Payload for the US OpenVPN configuration
-		payload{
+		Payload{
 			VPN:             c.openVPN(""),
 			Description:     "Configures VPN settings",
 			DisplayName:     "VPN",
@@ -383,7 +383,7 @@ func (c VpnCredential) GetMCOpenVpn(client *Client) ([]CredentialPayload, error)
 	}
 
 	// Over-arching configuration
-	p := configuration{
+	p := Configuration{
 		Payloads:          pays,
 		DisplayName:       "Example VPN",
 		Identifier:        device,

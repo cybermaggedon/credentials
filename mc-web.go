@@ -15,8 +15,8 @@ import (
 )
 
 // Construct P12 payload for a web cert, for encoding to mobileconfig
-func (c WebCredential) p12Payload(p12 []byte, pwd, name, uuid string) payload {
-	return payload{
+func (c WebCredential) p12Payload(p12 []byte, pwd, name, uuid string) Payload {
+	return Payload{
 		Password:            pwd,
 		CertificateFileName: name,
 		Content:             p12,
@@ -47,7 +47,7 @@ func (c WebCredential) GetMC(client *Client) ([]CredentialPayload, error) {
 	// file
 
 	// Payload list.
-	pays := []payload{
+	pays := []Payload{
 		// Payload for the P12 bundle.
 		c.p12Payload(creds.P12, string(creds.Password), "web-cert.p12",
 			p12PayUuid),
