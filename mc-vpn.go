@@ -47,8 +47,8 @@ func (c VpnCredential) ipv4() *ipv4 {
 }
 
 // IKEv2 for mobileconfig encoding
-func (c VpnCredential) ikev2(device, p12PayUuid, host string) *ikev2 {
-	return &ikev2{
+func (c VpnCredential) ikev2(device, p12PayUuid, host string) *Ikev2 {
+	return &Ikev2{
 		AuthenticationMethod:                      "Certificate",
 		CertificateType:                           "ECDSA256",
 		ChildSecurityAssociationParameters:        c.saParams(),

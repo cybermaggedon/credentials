@@ -43,7 +43,7 @@ type Payload struct {
 	Type                string             `plist:"PayloadType,omitempty"`
 	UUID                string             `plist:"PayloadUUID,omitempty"`
 	Version             int                `plist:"PayloadVersion,omitempty"`
-	IKEv2               *ikev2             `plist:"IKEv2,omitempty"`
+	IKEv2               *Ikev2             `plist:"IKEv2,omitempty"`
 	VPN                 *vpn               `plist:"VPN,omitempty"`
 	IPv4                *ipv4              `plist:"IPv4,omitempty"`
 	Proxies             *proxies           `plist:"Proxies,omitempty"`
@@ -59,7 +59,7 @@ type onDemandRule struct {
 }
 
 // Mobileconfig IKEv2 configuration
-type ikev2 struct {
+type Ikev2 struct {
 	Name                               string                              `plist:"Name,omitempty"`
 	AuthenticationMethod               string                              `plist:"AuthenticationMethod,omitempty"`
 	CertificateType                    string                              `plist:"CertificateType,omitempty"`
